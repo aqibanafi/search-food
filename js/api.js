@@ -1,8 +1,6 @@
-spinner.style.display = 'center'
-spinner.style.display = 'none'
-const searchFood = search => {
-    spinner.style.display = 'center'
-    spinner.style.display = 'block'
+const spinner = document.getElementById('spinner');
+const searchFood = () => {
+    spinner.classList.remove('hidden')
     const findField = document.getElementById('search-field');
     const getValue = findField.value;
     findField.value = '';
@@ -12,8 +10,7 @@ const searchFood = search => {
     .then(showFood => displaySearchFood(showFood.meals))
 }
 const displaySearchFood = foodItem => {
-    spinner.style.display = 'center'
-    spinner.style.display = 'none'
+    spinner.classList.add('hidden')
     const getMainDiv = document.getElementById('main-div');
     getMainDiv.innerHTML = '';
     foodItem.forEach(itemsName => {
